@@ -397,9 +397,31 @@ public class VentPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuCrearFacturaActionPerformed
 
     private void menuEspañolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEspañolActionPerformed
-       localizacion = new Locale("es","EC");
-       Locale.setDefault(localizacion);
-       cambiarIdioma();
+        localizacion = new Locale("es", "EC");
+        Locale.setDefault(localizacion);
+        cambiarIdioma();
+
+        if (crearCliente != null && crearCliente.isVisible()) {
+            crearCliente.cambiarIdioma(mensajes);
+        }
+        if (buscarCliente != null && buscarCliente.isVisible()) {
+            buscarCliente.cambiarIdioma(mensajes);
+        }
+        if (actualizarCliente != null && actualizarCliente.isVisible()) {
+            actualizarCliente.cambiarIdioma(mensajes);
+        }
+        if (eliminarCliente != null && eliminarCliente.isVisible()) {
+            eliminarCliente.cambiarIdioma(mensajes);
+        }
+        if (listarCliente != null && listarCliente.isVisible()) {
+            listarCliente.cambiarIdioma(mensajes);
+        }
+        if (crearFactura != null && crearFactura.isVisible()) {
+            crearFactura.cambiarIdioma(mensajes);
+        }
+        if (eliminarFactura != null && eliminarFactura.isVisible()) {
+            eliminarFactura.cambiarIdioma(mensajes);
+        }
     }//GEN-LAST:event_menuEspañolActionPerformed
 
     private void menuEnglishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEnglishActionPerformed
@@ -449,7 +471,7 @@ public class VentPrincipal extends javax.swing.JFrame {
 
     private void menuEliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEliminarFacturaActionPerformed
         if (eliminarFactura == null || !eliminarFactura.isVisible()) {
-            eliminarFactura = new EliminarFactura(controlFactura, mensajes);
+            eliminarFactura = new EliminarFactura(controlFactura, controlCliente, controlProducto, mensajes);
             eliminarFactura.setVisible(true);
             desktopPane.add(eliminarFactura);
             cambiarIdioma();
