@@ -42,11 +42,19 @@ public class ControladorFactura {
         codigo++;
     }
     
+    public Factura buscar(int codigo){
+        for (Factura factura : lista) {
+            if(codigo == factura.getCodigo())
+                return factura;
+        }
+        return null;
+    }
+    
     /**
      * Llamamos en el menuItem eliminar del menu factura.
      * @param obj 
      */
-     public void delete(Factura obj) {
+     public void eliminar(Factura obj) {
        if(lista.contains(obj))
             lista.remove(obj);    
     }
